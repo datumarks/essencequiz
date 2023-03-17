@@ -10,6 +10,8 @@ COPY . .
 
 ENV FLASK_APP=main.py
 
+ENV PORT 8080
+
 EXPOSE 8080
 
 CMD ["flask", "run"]

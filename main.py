@@ -6,6 +6,7 @@ import matplotlib.pyplot as plt
 import pickle
 import io
 import base64
+import os
 
 
 app = Flask(__name__)
@@ -144,7 +145,8 @@ def process_quiz():
 
 
 if __name__ == "__main__":
-    app.run()
+    app.run(debug=True, host='0.0.0.0', port=8080)
+
 
 
 
