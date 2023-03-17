@@ -1,6 +1,6 @@
 FROM python:3.9
 
-WORKDIR .
+WORKDIR
 
 COPY requirements.txt .
 
@@ -10,6 +10,6 @@ COPY . .
 
 ENV FLASK_APP=main.py
 
-EXPOSE 5000
+EXPOSE 8080
 
-CMD ["flask", "run", "--host=0.0.0.0"]
+CMD ["flask", "run"]
