@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Essence Extraction Essentials</title>
+    <style>
+      body {
+        background-color: #adabab;
+        font-family: 'Open Sans', sans-serif;
+        font-size: 16px;
+        line-height: 1.5;
+      }
+      h1 {
+        color: #0f701e;
+        font-size: 36px;
+        font-weight: bold;
+        margin-top: 40px;
+        margin-bottom: 20px;
+        text-align: center;
+        text-transform: uppercase;
+      }
+      form {
+        background-color: #e6e6e6;
+        border-radius: 10px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        margin: 0 auto;
+        max-width: 600px;
+        padding: 40px;
+      }
+      label {
+        color: #333333;
+        display: block;
+        font-size: 15px;
+        font-weight: bold;
+        margin-bottom: 10px;
+      }
+      input[type="text"],
+      input[type="email"],
+      input[type="radio"] {
+        border-radius: 5px;
+        border: 2px solid #E8E8E8;
+        box-sizing: border-box;
+        font-size: 16px;
+        padding: 10px;
+        width: 20%;
+      }
+      input[type="text"]:focus,
+      input[type="email"]:focus,
+      input[type="radio"]:focus {
+        border-color: #007A5E;
+        outline: none;
+      }
+      button[type="button"],
+      input[type="submit"] {
+        background-color: #007A5E;
+        border: none;
+        border-radius: 5px;
+        color: #FFFFFF;
+        cursor: pointer;
+        font-size: 18px;
+        font-weight: bold;
+        padding: 10px 20px;
+        transition: background-color 0.2s ease-in-out;
+        /* display: inline-block; Add this line */
+        /* vertical-align: middle; Add this line */
+      }
+      button[type="button"]:hover,
+      input[type="submit"]:hover {
+        background-color: #005A42;
+      }
+      p {
+        color: #666666;
+        font-size: 18px;
+        margin-bottom: 20px;
+      }
+      body, html {
+        overflow-x: hidden;
+       }
+    </style>
+    
+  </head>
+  <body>
+    <h1>Brand Archetype Quiz</h1>
+    <form action="/process_quiz" method="post">
+      <div id="brand-info">
+        <label for="name">Brand Name:</label>
+        <input type="text" id="name" name="name" required><br><br>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required><br><br>
+        <button type="button" onclick="nextQuestion(0)">Submit</button>
+      </div>
+
+      <div id="question1" style="display: none;">
+        <p>Question 1: Do you think your brand personality should be more focused on:</p>
+        <label><input type="radio" name="question1" value="A" required onkeydown="if (event.keyCode === 13) nextQuestion(1)">Creating emotional connections with customers</label><br>
+        <label><input type="radio" name="question1" value="B" required onkeydown="if (event.keyCode === 13) nextQuestion(1)">Being seen as a nonconformist and breaking away from tradition</label><br><br>
+        <button type="button" onclick="nextQuestion(1)">Next</button>
+      </div>
+
+      <div id="question2" style="display: none;">
+        <p>Question 2: Is it more important for your brand to be seen as:</p>
+        <label><input type="radio" name="question2" value="A" required onkeydown="if (event.keyCode === 13) nextQuestion(2)">A responsible and reliable leader</label><br>
+        <label><input type="radio" name="question2" value="B" required onkeydown="if (event.keyCode === 13) nextQuestion(2)">A visionary and inspirational leader</label><br><br>
+        <button type="button" onclick="nextQuestion(2)">Next</button>
+      </div>
+      <div id="question3" style="display: none;">
+        <p>Question 3: Is it more important for your brand to be seen as:</p>
+        <label><input type="radio" name="question3" value="A" required onkeydown="if (event.keyCode === 13) nextQuestion(3)">An innovative and original creator</label><br>
+        <label><input type="radio" name="question3" value="B" required onkeydown="if (event.keyCode === 13) nextQuestion(3)">A traditional and dependable provider</label><br><br>
+        <button type="button" onclick="nextQuestion(3)">Next</button>
+      </div>
+      <div id="question4" style="display: none;">
+        <p>Question 4: Is it more important for your brand to be seen as:</p>
+        <label><input type="radio" name="question4" value="A" required onkeydown="if (event.keyCode === 13) nextQuestion(4)">Sincere and genuine</label><br>
+        <label><input type="radio" name="question4" value="B" required onkeydown="if (event.keyCode === 13) nextQuestion(4)">Bold and daring</label><br><br>
+        <button type="button" onclick="nextQuestion(4)">Next</button>
+      </div>
+    
+      <div id="question5" style="display: none;">
+        <p>Question 5: Is it more important for your brand to be seen as:</p>
+        <label><input type="radio" name="question5" value="A" required onkeydown="if (event.keyCode === 13) nextQuestion(5)">Fun and exciting</label><br>
+        <label><input type="radio" name="question5" value="B" required onkeydown="if (event.keyCode === 13) nextQuestion(5)">Calm and reliable</label><br><br>
+        <button type="button" onclick="nextQuestion(5)">Next</button>
+      </div>
+    
+      <div id="question6" style="display: none;">
+        <p>Question 6: Is it more important for your brand to be seen as:</p>
+        <label><input type="radio" name="question6" value="A" required onkeydown="if (event.keyCode === 13) nextQuestion(6)">Efficient and productive</label><br>
+        <label><input type="radio" name="question6" value="B" required onkeydown="if (event.keyCode === 13) nextQuestion(6)">Caring and personalized</label><br><br>
+        <button type="button" onclick="nextQuestion(6)">Next</button>
+      </div>
+
+      <div id="question7" style="display: none;">
+        <p>Question 7: Is it more important for your brand to be seen as:</p>
+        <label><input type="radio" name="question7" value="A" required onkeydown="if (event.keyCode === 13) nextQuestion(7)">Helpful and obliging</label><br>
+        <label><input type="radio" name="question7" value="B" required onkeydown="if (event.keyCode === 13) nextQuestion(7)">Independent and self-sufficient</label><br><br>
+        <button type="button" onclick="nextQuestion(7)">Next</button>
+      </div>
+
+      <div id="question8" style="display: none;">
+        <p>Question 8: Do you think your brand personality should be more focused on:</p>
+        <label><input type="radio" name="question8" value="A" required onkeydown="if (event.keyCode === 13) nextQuestion(8)">Providing a premium experience</label><br>
+        <label><input type="radio" name="question8" value="B" required onkeydown="if (event.keyCode === 13) nextQuestion(8)">Being accessible to everyone</label><br><br>
+        <button type="button" onclick="nextQuestion(8)">Next</button>
+      </div>
+      <div id="question9" style="display: none;">
+        <p>Question 9: Do you think your brand personality should be more focused on:</p>
+        <label><input type="radio" name="question9" value="A" required onkeydown="if (event.keyCode === 13) nextQuestion(9)">Inspiring customers to be their best selves</label><br>
+        <label><input type="radio" name="question9" value="B" required onkeydown="if (event.keyCode === 13) nextQuestion(9)">Creating a sense of belonging</label><br><br>
+        <button type="button" onclick="nextQuestion(9)">Next</button>
+      </div>
+      <div id="question10" style="display: none;">
+        <p>Question 10: Do you think your brand personality should be more focused on:</p>
+        <label><input type="radio" name="question10" value="A" required onkeydown="if (event.keyCode === 13) nextQuestion(10)">Being bold and daring</label><br>
+        <label><input type="radio" name="question10" value="B" required onkeydown="if (event.keyCode === 13) nextQuestion(10)">Being understated and refined</label><br><br>
+        <button type="button" onclick="nextQuestion(10)">Next</button>
+      </div>
+      <div id="question11" style="display: none;">
+        <p>Question 11: Do you think your brand personality should be more focused on:</p>
+        <label><input type="radio" name="question11" value="A" required onkeydown="if (event.keyCode === 13) nextQuestion(11)">Being influential and powerful</label><br>
+        <label><input type="radio" name="question11" value="B" required onkeydown="if (event.keyCode === 13) nextQuestion(11)">Being authentic and relatable</label><br><br>
+        <button type="button" onclick="nextQuestion(11)">Next</button>
+      </div>
+      <div id="question12" style="display: none;">
+        <p>Question 12: Do you think your brand's communication style should be more:</p>
+        <label><input type="radio" name="question12" value="A" required onkeydown="if (event.keyCode === 13) nextQuestion(12)">Humorous and playful</label><br>
+        <label><input type="radio" name="question12" value="B" required onkeydown="if (event.keyCode === 13) nextQuestion(12)">Serious and straightforward</label><br><br>
+        <button type="button" onclick="nextQuestion(12)">Next</button>
+      </div>
+      <div id="question13" style="display: none;">
+        <p>Question 13: Do you think your brand's target audience is:</p>
+        <label><input type="radio" name="question13" value="A" required onkeydown="if (event.keyCode === 13) nextQuestion(13)">Young and adventurous</label><br>
+        <label><input type="radio" name="question13" value="B" required onkeydown="if (event.keyCode === 13) nextQuestion(13)">Mature and established</label><br><br>
+        <button type="button" onclick="nextQuestion(13)">Next</button>
+      </div>
+      <div id="question14" style="display: none;">
+        <p>Question 14: Do you think your brand's solutions to problems should be </p>
+        <label><input type="radio" name="question14" value="A" required onkeydown="if (event.keyCode === 13) nextQuestion(14)">Individualistic and self-reliant</label><br>
+        <label><input type="radio" name="question14" value="B" required onkeydown="if (event.keyCode === 13) nextQuestion(14)">Cooperative and community-oriented</label><br><br>
+        <button type="button" onclick="nextQuestion(14)">Next</button>
+      </div>
+      <div id="question15" style="display: none;">
+        <p>Question 15: When planning a vacation, do you tend to:</p>
+        <label><input type="radio" name="question15" value="A" required onkeydown="if (event.keyCode === 13) nextQuestion(15)">Seek out adventure and new experiences</label><br>
+        <label><input type="radio" name="question15" value="B" required onkeydown="if (event.keyCode === 13) nextQuestion(15)">Relax and unwind in familiar surroundings</label><br><br>
+        <button type="button" onclick="nextQuestion(15)">Next</button>
+      </div>
+      <div id="question16" style="display: none;">
+        <p>Question 16: When promoting your brand, do you emphasize:</p>
+        <label><input type="radio" name="question16" value="A" required onkeydown="if (event.keyCode === 13) nextQuestion(16)">Authenticity and transparency</label><br>
+        <label><input type="radio" name="question16" value="B" required onkeydown="if (event.keyCode === 13) nextQuestion(16)">Aspiration and inspiration</label><br><br>
+        <button type="button" onclick="nextQuestion(16)">Next</button>
+      </div>
+      <div id="question17" style="display: none;">
+        <p>Question 17: When it comes to home decor, do you prefer:</p>
+        <label><input type="radio" name="question17" value="A" required onkeydown="if (event.keyCode === 13) nextQuestion(17)">Modern, cutting-edge designs</label><br>
+        <label><input type="radio" name="question17" value="B" required onkeydown="if (event.keyCode === 13) nextQuestion(17)">Classic, timeless pieces</label><br><br>
+        <button type="button" onclick="nextQuestion(17)">Next</button>
+      </div>
+      <div id="question18" style="display: none;">
+        <p>Question 18: When faced with a new challenge, do you tend to: </p>
+        <label><input type="radio" name="question18" value="A" required onkeydown="if (event.keyCode === 13) nextQuestion(18)">Take bold risks and try new things</label><br>
+        <label><input type="radio" name="question18" value="B" required onkeydown="if (event.keyCode === 13) nextQuestion(18)">Carefully plan and consider all options before acting</label><br><br>
+        <button type="button" onclick="nextQuestion(18)">Next</button>
+      </div>
+      <div id="question19" style="display: none;">
+        <p>Question 19: When shopping for groceries, do you tend to:</p>
+        <label><input type="radio" name="question19" value="A" required onkeydown="if (event.keyCode === 13) nextQuestion(19)">Look for high-end, specialty products</label><br>
+        <label><input type="radio" name="question19" value="B" required onkeydown="if (event.keyCode === 13) nextQuestion(19)">Shop for value and affordability</label><br><br>
+        <button type="button" onclick="nextQuestion(19)">Next</button>
+      </div>
+      <div id="question20" style="display: none;">
+        <p>Question 20: When it comes to fashion, do you prefer:</p>
+        <label><input type="radio" name="question20" value="A" required onkeydown="if (event.keyCode === 13) nextQuestion(20)">Trendy, fashion-forward pieces</label><br>
+        <label><input type="radio" name="question20" value="B" required onkeydown="if (event.keyCode === 13) nextQuestion(20)">Classic, timeless styles</label><br><br>
+        <button type="button" onclick="nextQuestion(20)">Next</button>
+      </div>
+      <div id="question21" style="display: none;">
+        <p>Question 21: At a party, do you tend to:</p>
+        <label><input type="radio" name="question21" value="A" required onkeydown="if (event.keyCode === 13) nextQuestion(21)">Stick with familiar faces and conversations</label><br>
+        <label><input type="radio" name="question21" value="B" required onkeydown="if (event.keyCode === 13) nextQuestion(21)">Socialize with new people and try new things</label><br><br>
+        <button type="button" onclick="nextQuestion(21)">Next</button>
+      </div>
+      <div id="question22" style="display: none;">
+        <p>Question 22: When you go out to eat, do you prefer:</p>
+        <label><input type="radio" name="question22" value="A" required onkeydown="if (event.keyCode === 13) nextQuestion(22)">High-end, gourmet cuisine</label><br>
+        <label><input type="radio" name="question22" value="B" required onkeydown="if (event.keyCode === 13) nextQuestion(22)">Comfort food</label><br><br>
+        <button type="button" onclick="nextQuestion(22)">Next</button>
+      </div>
+      <div id="question23" style="display: none;">
+        <p>Question 23: At a music festival, do you prefer:</p>
+        <label><input type="radio" name="question23" value="A" required onkeydown="if (event.keyCode === 13) nextQuestion(23)">Sitting back and enjoying the show</label><br>
+        <label><input type="radio" name="question23" value="B" required onkeydown="if (event.keyCode === 13) nextQuestion(23)">Dancing and letting loose with the crowd</label><br><br>
+        <button type="button" onclick="nextQuestion(23)">Next</button>
+      </div>
+      <div id="question24" style="display: none;">
+        <p>Question 24: When it comes to technology, do you prefer:</p>
+        <label><input type="radio" name="question24" value="A" required onkeydown="if (event.keyCode === 13) nextQuestion(24)">Established and reliable brands</label><br>
+        <label><input type="radio" name="question24" value="B" required onkeydown="if (event.keyCode === 13) nextQuestion(24)">Up-and-coming startups with new and innovative ideas</label><br><br>
+        <button type="button" onclick="nextQuestion(24)">Next</button>
+      </div>
+      <div id="question25" style="display: none;">
+        <p>Question 25: Do you want your brand to be seen as:</p>
+        <label><input type="radio" name="question25" value="A" required onkeydown="if (event.keyCode === 13) nextQuestion(25)">Imaginative and creative</label><br>
+        <label><input type="radio" name="question25" value="B" required onkeydown="if (event.keyCode === 13) nextQuestion(25)">Realistic and practical</label><br><br>
+        <button type="button" onclick="nextQuestion(25)">Next</button>
+      </div>
+      <div id="question26" style="display: none;">
+        <p>Question 26: Which approach do you think is more effective for winning over new customers:</p>
+        <label><input type="radio" name="question26" value="A" required onkeydown="if (event.keyCode === 13) nextQuestion(26)">Providing high-quality products and services at a fair price</label><br>
+        <label><input type="radio" name="question26" value="B" required onkeydown="if (event.keyCode === 13) nextQuestion(26)">Building strong emotional connections with customers by telling engaging stories and creating memorable experiences</label><br><br>
+        <button type="button" onclick="nextQuestion(26)">Next</button>
+      </div>
+    
+      <div id="question27" style="display: none;">
+        <p>Question 27: Do you prefer to interact with customers:</p>
+        <label><input type="radio" name="question27" value="A" required onkeydown="if (event.keyCode === 13) nextQuestion(27)">In a formal and professional manner</label><br>
+        <label><input type="radio" name="question27" value="B" required onkeydown="if (event.keyCode === 13) nextQuestion(27)">In a more casual and personalized way, adjusting your communication style to match the customer's energy and personality</label><br><br>
+        <button type="button" onclick="nextQuestion(27)">Next</button>
+      </div>
+    
+      <div id="question28" style="display: none;">
+        <p>Question 28: When assisting a customer, do you prioritize:</p>
+        <label><input type="radio" name="question28" value="A" required onkeydown="if (event.keyCode === 13) nextQuestion(28)">Their emotional needs and well-being</label><br>
+        <label><input type="radio" name="question28" value="B" required onkeydown="if (event.keyCode === 13) nextQuestion(28)">Solving their problem as quickly and efficiently as possible</label><br><br>
+        <button type="button" onclick="nextQuestion(28)">Next</button>
+      </div>
+    
+      <div id="question29" style="display: none;">
+        <p>Question 29: When helping a customer, do you:</p>
+        <label><input type="radio" name="question29" value="A" required onkeydown="if (event.keyCode === 13) nextQuestion(29)">Focus on providing clear and concise information</label><br>
+        <label><input type="radio" name="question29" value="B" required onkeydown="if (event.keyCode === 13) nextQuestion(29)">Take the time to explain things in a more educational and detailed manner</label><br><br>
+        <button type="button" onclick="nextQuestion(29)">Next</button>
+      </div>
+      <div id="question30" style="display: none;">
+        <p>Question 30: Do you feel more motivated when you:</p>
+        <label><input type="radio" name="question30" value="A" required onkeydown="if (event.keyCode === 13) nextQuestion(30)">Have a clear, step-by-step plan to follow</label><br>
+        <label><input type="radio" name="question30" value="B" required onkeydown="if (event.keyCode === 13) nextQuestion(30)">Have the freedom to explore and experiment with new ideas</label><br><br>
+        <button type="button" onclick="nextQuestion(30)">Next</button>
+      </div>
+      <div id="question31" style="display: none;">
+        <p>Question 31: When making a decision, do you tend to rely more on:</p>
+        <label><input type="radio" name="question31" value="A" required onkeydown="if (event.keyCode === 13) nextQuestion(31)">Practical considerations and common sense</label><br>
+        <label><input type="radio" name="question31" value="B" required onkeydown="if (event.keyCode === 13) nextQuestion(31)">Your intuition and imagination</label><br><br>
+        <button type="button" onclick="nextQuestion(31)">Next</button>
+      </div>
+      <div id="submit" style="display: none; overflow: auto;">
+        <input type="submit" value="Submit">
+      </div>
+
+    </form>
+    
+    <script>
+      function nextQuestion(questionNum) {
+        if (questionNum === 0) {
+          document.getElementById("brand-info").style.display = "none";
+          document.getElementById("question1").style.display = "block";
+        } else {
+          var currentQuestion = document.getElementById("question" + questionNum);
+          currentQuestion.style.display = "none";
+          var nextQuestion = document.getElementById("question" + (questionNum + 1));
+          if (nextQuestion) {
+            nextQuestion.style.display = "block";
+          } else {
+            document.getElementById("submit").style.display = "block";
+          }
+        }
+        // Add this line to ensure the submit button is displayed after the last question
+        if (!nextQuestion && questionNum === 31) {
+          document.getElementById("submit").style.display = "block";
+        }
+        }
+
+
+    </script>
+
+  </body>
+</html>
+
+
+

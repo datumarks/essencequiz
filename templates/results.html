@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Brand Quiz Results</title>
+	<style>
+		body {
+			background-color: #F3F3F3;
+			color: #444444;
+			font-family: "Helvetica Neue", sans-serif;
+			font-size: 18px;
+			line-height: 1.5;
+			margin: 0;
+			padding: 0;
+		}
+		h1 {
+			color: #4F4F4F;
+			font-size: 36px;
+			font-weight: normal;
+			margin: 50px 0 20px 0;
+			text-align: center;
+		}
+		.box {
+			background-color: #FFFFFF;
+			border: 1px solid #CCCCCC;
+			border-radius: 5px;
+			box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+			margin: 0 auto 30px auto;
+			max-width: 700px;
+			padding: 30px;
+		}
+		p {
+			color: #444444;
+			font-size: 20px;
+			margin-bottom: 20px;
+			text-align: center;
+		}
+		.chart {
+			display: block;
+			margin: 0 auto;
+			max-width: 700px;
+		}
+	</style>
+</head>
+<body>
+	<div class="box">
+		<h1>Thank you for taking the Essence Extraction quiz, {{name}}!</h1>
+		<p>We have analyzed your responses and determined that your brand archetype is <strong>{{archetype}}</strong>.</p>
+		<p>Here is a breakdown of the top 3 archetypes:</p>
+		<img class="chart" src="data:image/png;base64,{{chart}}" alt="Chart of Brand Archetypes">
+		<p>We hope this information is helpful as you build your brand.</p>
+	</div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Brand Quiz Results</title>
+</head>
+<body>
+	<h1>Thank you for taking the Brand Quiz, {{name}}!</h1>
+	<p>We have analyzed your responses and determined that your brand archetype is <strong>{{archetype}}</strong>.</p>
+	<p>Here is a breakdown of the top 3 archetypes:</p>
+	<img src="data:image/png;base64,{{chart}}" alt="Chart of Brand Archetypes">
+	<p>Thank you again for taking the Brand Quiz. We hope this information is helpful as you build your brand.</p>
+</body>
+</html> -->
